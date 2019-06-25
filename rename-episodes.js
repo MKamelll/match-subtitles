@@ -96,9 +96,9 @@ function renameAllFiles(filesObject) {
         `${path}\\${filesObject[subName]}`,
         (err, _) => {
           if (err) {
-            // check for dublication errors
+            // check for duplication errors
             if (err.code === 'EPERM' && err.syscall === 'rename') {
-              console.error('Oops, dublicate subtitles!');
+              console.error('Oops, duplication subtitles!');
             } else {
               throw err;
             }
