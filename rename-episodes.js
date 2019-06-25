@@ -94,7 +94,7 @@ function renameAllFiles(filesObject) {
       fs.rename(
         `${path}\\${subName}`,
         `${path}\\${filesObject[subName]}`,
-        (err, _) => {
+        err => {
           if (err) {
             // check for duplication errors
             if (err.code === 'EPERM' && err.syscall === 'rename') {
@@ -123,6 +123,8 @@ function renameAllFiles(filesObject) {
           }
         }
       );
+    } else {
+      console.log(`${chalk.yellow('Found extra files!')}`);
     }
   });
 }
